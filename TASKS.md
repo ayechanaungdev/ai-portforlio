@@ -17,14 +17,14 @@
   - [x] Create `src/context/LanguageContext.tsx` (EN / JP toggle).
   - [x] Create `src/utils/dateHelpers.ts` for dynamic age and job duration calculations.
 
-- [ ] **Phase 4: Modern & Attractive UI Components Development**
-  - [ ] **Navbar:** Create `src/components/Navbar.tsx` with logo, navigation links, Theme Toggle (☀️/🌙), and Language Switcher (EN/JP).
-  - [ ] **Hero Section:** Create `src/components/Hero.tsx` with dynamic age badge, Framer Motion animations, and CV download trigger.
-  - [ ] **About & Stats Section:** Create `src/components/AboutStats.tsx` with bilingual support.
-  - [ ] **Skills Section:** Create `src/components/BentoSkills.tsx` in Apple-style Bento Grid layout.
-  - [ ] **Timeline Section:** Create `src/components/Timeline.tsx` with dynamic duration ranges.
-  - [ ] **Works & Services Section:** Create `src/components/ServicesPortfolio.tsx` with hover effects.
-  - [ ] **Contact & Map Section:** Create `src/components/ContactMap.tsx` featuring Leaflet map + email form.
+- [x] **Phase 4: Modern & Attractive UI Components Development**
+  - [x] **Navbar:** Create `src/components/Navbar.tsx` with logo, navigation links, Theme Toggle (☀️/🌙), and Language Switcher (EN/JP).
+  - [x] **Hero Section:** Create `src/components/Hero.tsx` with dynamic age badge, Framer Motion animations, and CV download trigger.
+  - [x] **About & Stats Section:** Create `src/components/AboutStats.tsx` with bilingual support.
+  - [x] **Skills Section:** Create `src/components/BentoSkills.tsx` in Apple-style Bento Grid layout.
+  - [x] **Timeline Section:** Create `src/components/Timeline.tsx` with dynamic duration ranges.
+  - [x] **Works & Services Section:** Create `src/components/ServicesPortfolio.tsx` with hover effects.
+  - [x] **Contact & Map Section:** Create `src/components/ContactMap.tsx` featuring Leaflet map + email form.
 
 - [ ] **Phase 5: Email Service & Integration**
   - [ ] Create `src/services/emailService.ts` for EmailJS API integration.
