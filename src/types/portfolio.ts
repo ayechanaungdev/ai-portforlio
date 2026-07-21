@@ -1,0 +1,97 @@
+/** English / Japanese pair for any translatable text field. */
+export interface LocalizedString {
+  en: string;
+  jp: string;
+}
+
+/** English / Japanese pair for a list of translatable strings (e.g. bullet points). */
+export interface LocalizedStringList {
+  en: string[];
+  jp: string[];
+}
+
+export interface SocialLink {
+  platform: "github" | "linkedin" | "twitter" | "facebook" | "instagram" | "youtube" | "website";
+  url: string;
+}
+
+export interface Profile {
+  name: string;
+  title: LocalizedString;
+  tagline: LocalizedString;
+  bio: LocalizedString;
+  location: LocalizedString;
+  /** ISO 8601 date (YYYY-MM-DD), used by dateHelpers to compute a dynamic age badge. */
+  birthDate: string;
+  email: string;
+  phone?: string;
+  avatarUrl?: string;
+  resumeUrl?: string;
+  socialLinks: SocialLink[];
+}
+
+export interface StatItem {
+  id: string;
+  label: LocalizedString;
+  value: number;
+  suffix?: string;
+}
+
+export interface WorkExperience {
+  id: string;
+  role: LocalizedString;
+  company: LocalizedString;
+  location: LocalizedString;
+  /** ISO 8601 date (YYYY-MM-DD). */
+  startDate: string;
+  /** ISO 8601 date (YYYY-MM-DD), or null if this is the current position. */
+  endDate: string | null;
+  description: LocalizedString;
+  responsibilities: LocalizedStringList;
+  technologies: string[];
+}
+
+export interface Education {
+  id: string;
+  degree: LocalizedString;
+  institution: LocalizedString;
+  location: LocalizedString;
+  /** ISO 8601 date (YYYY-MM-DD). */
+  startDate: string;
+  /** ISO 8601 date (YYYY-MM-DD), or null if currently in progress / expected. */
+  endDate: string | null;
+  description: LocalizedString;
+}
+
+export interface SkillItem {
+  name: string;
+  /** Proficiency level as a percentage, 0-100. */
+  level: number;
+}
+
+export interface SkillCategory {
+  id: string;
+  title: LocalizedString;
+  skills: SkillItem[];
+}
+
+export interface Project {
+  id: string;
+  title: LocalizedString;
+  description: LocalizedString;
+  category: LocalizedString;
+  technologies: string[];
+  imageUrl?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  featured: boolean;
+}
+
+export interface PortfolioData {
+  profile: Profile;
+  stats: StatItem[];
+  workExperience: WorkExperience[];
+  education: Education[];
+  skills: SkillCategory[];
+  projects: Project[];
+}

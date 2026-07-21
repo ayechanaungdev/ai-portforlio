@@ -1,16 +1,16 @@
 # Portfolio Migration & Development Tasks
 
-- [ ] **Phase 1: Project Setup & Environment**
-  - [ ] Initialize Vite + React (TypeScript) project (with ESLint).
-  - [ ] Install dependencies (`tailwindcss`, `@tailwindcss/vite`, `framer-motion`, `lucide-react`, `leaflet`, `react-leaflet`, `@types/leaflet`, `gh-pages`).
-  - [ ] Configure `vite.config.ts` (with `base: './'`) and `src/index.css` for Tailwind CSS v4.
-  - [ ] Configure `.gitignore` to protect `.env` and `node_modules`.
-  - [ ] Save `CLAUDE.md` and `TASKS.md` in root directory.
+- [x] **Phase 1: Project Setup & Environment**
+  - [x] Initialize Vite + React (TypeScript) project (with ESLint).
+  - [x] Install dependencies (`tailwindcss`, `@tailwindcss/vite`, `framer-motion`, `lucide-react`, `leaflet`, `react-leaflet`, `@types/leaflet`, `gh-pages`).
+  - [x] Configure `vite.config.ts` (with `base: './'`) and `src/index.css` for Tailwind CSS v4.
+  - [x] Configure `.gitignore` to protect `.env` and `node_modules`.
+  - [x] Save `CLAUDE.md` and `TASKS.md` in root directory.
 
-- [ ] **Phase 2: Data Extraction & Bilingual Type Safety**
-  - [ ] Extract content from `https://ayechanaungdev.github.io/portfolio/`.
-  - [ ] Create `src/types/portfolio.ts` with strict TypeScript interfaces supporting EN and JP fields.
-  - [ ] Generate `src/data/portfolioData.json` populated with English and Japanese translations.
+- [x] **Phase 2: Data Extraction & Bilingual Type Safety**
+  - [x] Extract content from `https://ayechanaungdev.github.io/portfolio/`.
+  - [x] Create `src/types/portfolio.ts` with strict TypeScript interfaces supporting EN and JP fields.
+  - [x] Generate `src/data/portfolioData.json` populated with English and Japanese translations.
 
 - [ ] **Phase 3: State Contexts & Dynamic Helpers**
   - [ ] Create `src/context/ThemeContext.tsx` (Light / Dark mode toggle with `localStorage`).
