@@ -12,10 +12,10 @@
   - [x] Create `src/types/portfolio.ts` with strict TypeScript interfaces supporting EN and JP fields.
   - [x] Generate `src/data/portfolioData.json` populated with English and Japanese translations.
 
-- [ ] **Phase 3: State Contexts & Dynamic Helpers**
-  - [ ] Create `src/context/ThemeContext.tsx` (Light / Dark mode toggle with `localStorage`).
-  - [ ] Create `src/context/LanguageContext.tsx` (EN / JP toggle).
-  - [ ] Create `src/utils/dateHelpers.ts` for dynamic age and job duration calculations.
+- [x] **Phase 3: State Contexts & Dynamic Helpers**
+  - [x] Create `src/context/ThemeContext.tsx` (Light / Dark mode toggle with `localStorage`).
+  - [x] Create `src/context/LanguageContext.tsx` (EN / JP toggle).
+  - [x] Create `src/utils/dateHelpers.ts` for dynamic age and job duration calculations.
 
 - [ ] **Phase 4: Modern & Attractive UI Components Development**
   - [ ] **Navbar:** Create `src/components/Navbar.tsx` with logo, navigation links, Theme Toggle (☀️/🌙), and Language Switcher (EN/JP).
