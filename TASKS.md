@@ -26,10 +26,10 @@
   - [x] **Works & Services Section:** Create `src/components/ServicesPortfolio.tsx` with hover effects.
   - [x] **Contact & Map Section:** Create `src/components/ContactMap.tsx` featuring Leaflet map + email form.
 
-- [ ] **Phase 5: Email Service & Integration**
-  - [ ] Create `src/services/emailService.ts` for EmailJS API integration.
-  - [ ] Set up EmailJS keys in `.env` file.
-  - [ ] Connect `ContactMap.tsx` form submission to `emailService.ts`.
+- [x] **Phase 5: Email Service & Integration**
+  - [x] Create `src/services/emailService.ts` for EmailJS API integration.
+  - [x] Set up EmailJS keys in `.env` file.
+  - [x] Connect `ContactMap.tsx` form submission to `emailService.ts`.
 
 - [ ] **Phase 6: Quality Verification & Build**
   - [ ] Run `npm run build` to verify strict TypeScript checks.

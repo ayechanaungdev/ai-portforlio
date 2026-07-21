@@ -4,8 +4,11 @@ import { divIcon } from "leaflet";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
+import { sendContactMessage } from "../services/emailService";
 import portfolioData from "../data/portfolioData.json";
 import type { PortfolioData } from "../types/portfolio";
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const data = portfolioData as PortfolioData;
 const YANGON: [number, number] = [16.8409, 96.1735];
@@ -20,6 +23,8 @@ const COPY = {
     send: "Send Message",
     sending: "Sending...",
     success: "Message sent! I'll get back to you soon.",
+    invalidEmail: "Please enter a valid email address.",
+    genericError: "Something went wrong. Please try again or email me directly.",
   },
   jp: {
     title: "お問い合わせ",
@@ -30,6 +35,8 @@ const COPY = {
     send: "送信する",
     sending: "送信中...",
     success: "送信しました。追ってご連絡いたします。",
+    invalidEmail: "有効なメールアドレスを入力してください。",
+    genericError: "送信に失敗しました。時間をおいて再度お試しいただくか、直接メールでご連絡ください。",
   },
 };
 
@@ -40,7 +47,7 @@ const markerIcon = divIcon({
   iconAnchor: [16, 16],
 });
 
-type Status = "idle" | "sending" | "success";
+type Status = "idle" | "sending" | "success" | "error";
 
 export default function ContactMap() {
   const { language } = useLanguage();
@@ -48,16 +55,33 @@ export default function ContactMap() {
   const copy = COPY[language];
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const tileUrl =
     theme === "dark"
       ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
       : "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png";
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!EMAIL_PATTERN.test(form.email)) {
+      setStatus("error");
+      setErrorMessage(copy.invalidEmail);
+      return;
+    }
+
     setStatus("sending");
-    window.setTimeout(() => setStatus("success"), 800);
+    setErrorMessage(null);
+
+    try {
+      await sendContactMessage(form);
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : copy.genericError);
+    }
   };
 
   return (
@@ -150,6 +174,11 @@ export default function ContactMap() {
               </button>
 
               {status === "success" && <p className="text-sm text-accent">{copy.success}</p>}
+              {status === "error" && (
+                <p className="text-sm text-red-500 dark:text-red-400">
+                  {errorMessage ?? copy.genericError}
+                </p>
+              )}
             </form>
           </div>
         </div>
