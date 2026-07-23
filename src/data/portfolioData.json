@@ -17,13 +17,13 @@
       "en": "Yangon, Myanmar",
       "jp": "ミャンマー、ヤンゴン"
     },
-    "birthDate": "1997-01-01",
-    "email": "contact@ayechanaung.dev",
+    "birthDate": "1996-01-28",
+    "email": "ayechanaungdev@gmail.com",
     "phone": "+95 9 762 296 652",
     "resumeUrl": "/resume-en.pdf",
     "socialLinks": [
       { "platform": "github", "url": "https://github.com/ayechanaungdev" },
-      { "platform": "linkedin", "url": "https://linkedin.com/in/ayechanaungdev" },
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/aca-cs/" },
       { "platform": "facebook", "url": "https://facebook.com/ayechanaungdev" },
       { "platform": "instagram", "url": "https://instagram.com/ayechanaungdev" },
       { "platform": "youtube", "url": "https://youtube.com/@ayechanaungdev" }
@@ -224,6 +224,19 @@
         { "name": "Web Design", "level": 99 },
         { "name": "UI/UX Design", "level": 92 },
         { "name": "Logo Design", "level": 79 }
+      ]
+    },
+    {
+      "id": "languages",
+      "title": { "en": "Languages", "jp": "言語" },
+      "skills": [
+        {
+          "name": {
+            "en": "Japanese — JLPT N2, Business Conversational",
+            "jp": "日本語 — 日本語能力試験N2・ビジネス会話レベル"
+          },
+          "level": 75
+        }
       ]
     }
   ],

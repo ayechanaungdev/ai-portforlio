@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download } from "lucide-react";
-import heroImg from "../assets/hero.png";
+import { ArrowRight, Download, Loader2 } from "lucide-react";
+import heroImg from "../assets/hero.jpg";
 import { useLanguage } from "../context/LanguageContext";
 import { calculateAge } from "../utils/dateHelpers";
 import portfolioData from "../data/portfolioData.json";
@@ -27,6 +28,17 @@ export default function Hero() {
   const { language } = useLanguage();
   const copy = COPY[language];
   const age = calculateAge(data.profile.birthDate);
+  const [isGeneratingCv, setIsGeneratingCv] = useState(false);
+
+  const handleDownloadCv = async () => {
+    setIsGeneratingCv(true);
+    try {
+      const { generateResumePdf } = await import("../utils/generateResumePdf");
+      await generateResumePdf(data, language);
+    } finally {
+      setIsGeneratingCv(false);
+    }
+  };
 
   return (
     <section id="home" className="relative flex min-h-screen items-center overflow-hidden pt-24">
@@ -45,9 +57,9 @@ export default function Hero() {
 
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-text-h sm:text-5xl lg:text-6xl">
             {copy.greeting}{" "}
-            <span className="bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
+            <div className="py-3 bg-gradient-to-r from-accent to-accent-2 bg-clip-text text-transparent">
               {data.profile.name}
-            </span>
+            </div>
           </h1>
 
           <p className="mt-4 text-xl font-medium text-text-h">{data.profile.title[language]}</p>
@@ -61,14 +73,15 @@ export default function Hero() {
               {copy.viewProjects}
               <ArrowRight size={16} />
             </a>
-            <a
-              href={data.profile.resumeUrl}
-              download
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-text-h transition-colors hover:border-accent hover:text-accent"
+            <button
+              type="button"
+              onClick={handleDownloadCv}
+              disabled={isGeneratingCv}
+              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-text-h transition-colors hover:border-accent hover:text-accent disabled:opacity-60"
             >
-              <Download size={16} />
+              {isGeneratingCv ? <Loader2 size={16} className="animate-spin" /> : <Download size={16} />}
               {copy.downloadCv}
-            </a>
+            </button>
           </div>
         </motion.div>
 
@@ -82,7 +95,7 @@ export default function Hero() {
           <img
             src={heroImg}
             alt={data.profile.name}
-            className="relative h-full w-full rounded-full border border-border object-cover"
+            className="my-3 relative h-full w-full rounded-full border border-border object-cover"
           />
         </motion.div>
       </div>

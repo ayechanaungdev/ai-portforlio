@@ -64,7 +64,8 @@ export interface Education {
 }
 
 export interface SkillItem {
-  name: string;
+  /** Plain string for proper nouns (e.g. "Python") that don't need translation, or a LocalizedString for skills whose label itself needs translating (e.g. language proficiency). */
+  name: string | LocalizedString;
   /** Proficiency level as a percentage, 0-100. */
   level: number;
 }
