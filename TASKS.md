@@ -31,9 +31,9 @@
   - [x] Set up EmailJS keys in `.env` file.
   - [x] Connect `ContactMap.tsx` form submission to `emailService.ts`.
 
-- [ ] **Phase 6: Quality Verification & Build**
-  - [ ] Run `npm run build` to verify strict TypeScript checks.
-  - [ ] Test Light/Dark theme switching, EN/JP translation switching, and mobile responsiveness.
+- [x] **Phase 6: Quality Verification & Build**
+  - [x] Run `npm run build` to verify strict TypeScript checks.
+  - [x] Test Light/Dark theme switching, EN/JP translation switching, and mobile responsiveness.
 
-- [ ] **Phase 7: GitHub Pages Deployment**
-  - [ ] Run `npm run deploy` to publish live site to GitHub Pages.
+- [x] **Phase 7: GitHub Pages Deployment**
+  - [x] Run `npm run deploy` to publish live site to GitHub Pages.

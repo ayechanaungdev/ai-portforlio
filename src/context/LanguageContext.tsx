@@ -35,6 +35,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components -- hook is intentionally co-located with its provider
 export function useLanguage(): LanguageContextValue {
   const context = useContext(LanguageContext);
   if (!context) throw new Error("useLanguage must be used within a LanguageProvider");
