@@ -15,7 +15,13 @@ async function sendViaEmailJs(payload: ContactMessage): Promise<void> {
   await emailjs.send(
     EMAILJS_SERVICE_ID,
     EMAILJS_TEMPLATE_ID,
-    { from_name: payload.name, from_email: payload.email, message: payload.message },
+    {
+      name: payload.name,
+      email: payload.email,
+      message: payload.message,
+      title: "Portfolio Contact Form",
+      time: new Date().toLocaleString(),
+    },
     { publicKey: EMAILJS_PUBLIC_KEY },
   );
 }
